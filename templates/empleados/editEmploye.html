@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Editar Empleado</h1>
+<hr>
+<form method="POST" enctype=multipart/form-data class="card p-3 mt-4">
+    {% csrf_token %}
+    <div class="row g-3 align-items-center">
+        {{ form.as_p }}
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+        <button class="btn btn-primary" type="submit">Enviar</button>
+        <a class="btn btn-danger" href="{% url 'empleados_app:list_employes' %}">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}

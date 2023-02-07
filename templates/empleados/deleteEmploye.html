@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST"> {% csrf_token %}
+    <h3>Desea Eliminar el Registro</h3>
+
+    <button type="submit">Confirmar</button>
+</form>
+{% endblock %}

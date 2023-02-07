@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-detail">
+    <a class="a-img" href="{{object.avatar.url}}">
+        <img class="imgRedonda" src="{{object.avatar.url}}">
+    </a>
+    <h1 class="h1-detail">{{ object.nombreEmpleado }}  {{ object.apellidoEmpleado }}</h1>
+    <a href="{% url 'empleados_app:list_employes' %}" class="btn btn-danger text-end">
+        <i class="fa-solid fa-xmark text-end"></i>
+    </a>
+</div>
+<div>
+<hr>
+<h5>Cargo </h5><span>{{ object.cargo }}</span>
+</div>
+
+{% endblock %}

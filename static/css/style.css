@@ -1,0 +1,40 @@
+.container-detail{
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    justify-items: center !important;
+}
+
+.a-img{
+    display: inline;
+    width: 5%;
+}
+
+.h1-detail{
+    display: inline-flex !important;
+    width: 70% !important;
+    margin-left: 15px;
+}
+
+.h1-cargo{
+    display: inline-block;
+    width: 90% !important;
+}
+
+.imgRedonda{
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    width: 65px !important;
+    height: 60px !important;
+}
+
+p>label{
+    width: 40% !important;
+}
+
+p>input{
+    display: flex !important;
+    width: 60%;
+}

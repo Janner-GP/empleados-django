@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Editar el area - <span sytyle="color: gray">{{ area.nombreArea }}</span></h1>
+<hr>
+<form method="POST" class="card p-3 mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+<div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+    <button class="btn btn-primary" type="submit">Enviar</button>
+    <a class="btn btn-danger" href="{% url 'areas_app:list-areas' %}">Cancelar</a>
+</div>
+</form>
+
+{% endblock %}

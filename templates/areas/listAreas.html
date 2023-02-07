@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block js%}
+<script>
+    function eliminarArea(id,area){
+        Swal.fire({
+          title: 'Eliminar' + ' ' +  area,
+          text: "¿Deseas Eliminar este cargo?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#dc3545',
+          confirmButtonText: 'Si, eliminar'
+        }).then(function(result){
+          if(result.isConfirmed){
+            location.href = 'delete-area/'+id+"/"
+            swalWithBootstrapButtons.fire(
+              'Eliminado!',
+              'El empleado ha sido eliminado.',
+              'success')
+          }
+        })
+      }
+</script>
+{% endblock %}
+
+{% block content %}
+<h1 class="h1-cargo">Areas de la compañia</h1>
+<a href="{% url 'areas_app:addarea' %}" class="btn btn-outline-success" type="submit">Nueva Area</a>
+<hr>
+<div class="accordion mt-4" id="accordionExample">
+    {% for area in areas %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{area.id}}" aria-expanded="false" aria-controls="{{cargo.id}}">
+                <strong>{{area.nombreArea}}</strong>
+            </button>
+        </h2>
+        <div id="{{area.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ area.descripcionArea }}
+            </div>
+            <div class="text-center mb-3">
+                <a href="{% url 'areas_app:updatearea' area.id %}" class="btn btn-warning"><i class="fa-solid fa-user-pen"></i> Editar</a>
+                <a href="#" onclick="eliminarArea({{area.id}},'{{area.nombreArea}}')" class="btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i> Eliminar</a>
+            </div> 
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
